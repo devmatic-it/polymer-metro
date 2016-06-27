@@ -1,0 +1,53 @@
+<link rel="import" href="elements.html">
+<link rel="import" href="metro-item.html">
+<link rel="import" href="metro-group.html">
+<link rel="import" href="app-data.html">
+
+<dom-module id="metro-menu">
+  <style include="iron-flex"></style>
+  <style is="custom">
+  </style>
+
+  <template>
+      <app-data id="homeRef" data="{{homeRef}}"></app-data>
+      <div class="vertical layout">
+           <content></content>
+      </div>
+    </template>
+
+
+  <script>
+    Polymer({
+      is: "metro-menu",
+      behaviors: [
+        Polymer.NeonAnimatableBehavior,
+        Polymer.IronResizableBehavior
+      ],
+      properties: {
+        key: {
+          type: String,
+          notify: true,
+          value: 'home'
+        },
+        animationConfig: {
+          value: function() {
+            return {
+              'entry': {
+                // provided by neon-animation/animations/scale-up-animation.html
+                name: 'slide-from-right-animation',
+                node: this
+              },
+              'exit': {
+                // provided by neon-animation/animations/fade-out-animation.html
+                name: 'slide-right-animation',
+                node: this
+              }
+            }
+          }
+        }
+      }
+
+    });
+  </script>
+
+</dom-module>

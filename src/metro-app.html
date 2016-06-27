@@ -1,0 +1,131 @@
+<link rel="import" href="elements.html">
+
+<dom-module id="metro-app">
+
+<style is="custom-style">
+    .main {
+      padding-top: 50px;
+      padding-left: 100px;
+      padding-right: 100px;
+    }
+
+    .back {
+      position: absolute;
+      top: 20px;
+      left: 100px;
+    }
+
+    .lang {
+      position:absolute;
+      top:80px;
+      right:110px;
+      text-align:right;
+    }
+
+    .header {
+    }
+
+    .footer {
+      text-align: right;
+      margin: 10px;
+
+    }
+
+    paper-icon-button.black {
+      color: white;
+      border-radius: 50%;
+      background-color: black;
+    }
+    paper-icon-button.black:hover {
+      color: white;
+      background-color: blue;
+    }
+
+   a.rounded{
+  text-align: right;
+   }
+
+    img.rounded{
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+    }
+</style>
+
+  <template>
+    <iron-location path="{{route}}"></iron-location>
+      Router Path:{{route}}
+      Home: {{homeRef}}
+    <div class="vertical layout main">
+        <div class="header">
+        <h1>
+          Devmatic <span style="color: #FF9148;">IT</span>
+        </h1>
+
+        <div class="lang">
+          <a href="/en" >
+            <img src="../images/languages/en.png" />
+          </a>
+          <a href="/de">
+            <img src="../images/languages/de.png" />
+          </a>
+        </div>
+      </div>
+
+        <template is="dom-if" if="{{backButtonVisible}}">
+            <div class="back">
+              <a href="{{homeRef}}" tabindex="-1">
+                <paper-icon-button icon="arrow-back" class="black"></paper-icon-button>
+              </a>
+            </div>
+      </template>
+
+        <div class="flex">
+        <neon-animated-pages selected='{{route}}'
+                             onchange="onChanged"
+                             attr-for-selected='{{selectedAttribute}}'>
+          <content></content>
+
+        </neon-animated-pages>
+      </div>
+        <div class="footer">
+        	<a href="legal">Legal</a>
+        </div>
+    </div>
+  </template>
+
+  <script>
+    Polymer({
+      is: "metro-app",
+      properties:{
+          homeRef:{
+            type: String,
+            notify: true,
+            value: "/en"
+          },
+          selectedAttribute:{
+            type: String,
+            notify: true,
+            value: "key"
+          },
+          route: {
+            type: Object,
+            notify: true
+          },
+          backButtonVisible:{
+            type: Boolean,
+            notify: true,
+            value: true
+          }
+        },
+        observers: [
+          'routeChanged(route)'
+        ],
+      routeChanged: function(route) {
+        this.backButtonVisible = (route !== '/en');
+        this.homeRef = route.substring(0, route.lastIndexOf('/'))
+    },
+    });
+  </script>
+
+</dom-module>

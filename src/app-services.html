@@ -1,0 +1,109 @@
+<link rel="import" href="elements.html">
+<link rel="import" href="app-page.html">
+<dom-module id="app-services">
+
+<style is="custom-style">
+  .page {
+    width:100%;
+
+  }
+
+  .services {
+    color:black;
+    background-color:white;
+  }
+</style>
+
+  <template>
+    <app-page logo="/images/tools.png">
+      <table class="page">
+  			<tr>
+  				<td class="services">
+            <p>
+            <b>System Integration.</b>
+            Most of the companies consist of a wide range of different platforms and
+            solutions to perform the daily work of the business. Missing integration
+            of the existing solutions results in redundant information, double work and
+            slower business processes. My experiences with technologies from Microsoft, SUN and IBM
+            on operating systems like Windows, Linux and AIX, starting from mobile
+            devices to high performance computing environments can enrich
+            your ability to identify potential problems and risks. Together, we can find solutions that
+            fit the high standards of your company.
+          </p>
+          </td>
+
+          <td class="services">
+            <p>
+            <b>Component Development.</b>
+      			Professional Software products consists of a wide range of 3rd party components.
+      			It is more economic to buy a ready-to-use component and integrate it into a
+      			product then developing a new one from sketch. On the other hand, highly
+      			specialized components can increase the customer experience and hence add a customer value.
+      			Together, we can find new ways to satisfy the needs of customers and
+      			enrich the customer experience.
+          </p>
+          </td>
+  			</tr>
+
+  			<tr>
+  				<td class="services">
+            <p>
+            <b>Software Migration.</b>
+            The Software industry is a fast-changing business.
+            Every two years, a new operating system is created providing new technologies,
+            new services and new functionalities to enrich the usability for the user.
+            Most of today's commercial software solutions have a long product life-cycle. The costumer
+            benefits from a stable solution, long time support and rich functionality.
+            Providing new customer benefits often requires a step by step migration
+            of existing products.
+            As part of your team, we will focus on your vision to archieve your goals and find a way out of the technology jungle.
+          </p>
+          </td>
+
+          <td class="services">
+            <p>
+            <b>Consulting.</b>
+          There are various ways to implement a customer oriented solution:
+          Most of them have strengths and weaknesses.
+          I can go towards finding better solutions by identifying the customer
+          goals, providing an analysis of the existing system reality and
+          summarize possible opportunities. This can reduce time to market,
+          minimize possible threats and reduces conflicts in early stages of the development.
+          Through my international experience, I can commit a lot to your team to respond better to cultural
+          differences and to ensure a successful collaboration with foreign countries.
+        </p>
+          </td>
+  			</tr>
+  		</table>
+    </app-page>
+  </template>
+
+  <script>
+    Polymer({
+      is: "app-services",
+      behaviors: [
+        Polymer.NeonAnimatableBehavior,
+        Polymer.IronResizableBehavior
+      ],
+      properties:{
+        animationConfig: {
+          value: function() {
+            return {
+              'entry': {
+                // provided by neon-animation/animations/scale-up-animation.html
+                name: 'slide-from-left-animation',
+                node: this
+              },
+              'exit': {
+                // provided by neon-animation/animations/fade-out-animation.html
+                name: 'slide-left-animation',
+                node: this
+              }
+            }
+          }
+        }
+      }
+    });
+  </script>
+
+</dom-module>

@@ -1,0 +1,93 @@
+<link rel="import" href="elements.html">
+
+<dom-module id="app-reference">
+
+<style include="iron-flex"></style>
+<style is="custom-style">
+  .logo{
+    height: 120px;
+    margin-top: 20px;
+    margin-right: 30px;
+  }
+
+  .page{
+    color: white;
+    background: #333;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 20px;
+  }
+
+  .block{
+    margin: 0px;
+    padding-left: 20px;
+  }
+</style>
+
+  <template>
+    <div class="page">
+    <div class="layout vertical">
+    <div class="layout horizontal">
+      <img class="logo" src="{{logo}}" </img>
+      <div class="layout vertical">
+      <h1>{{company}}</h1>
+      <h3>{{location}}</h3>
+      <i>{{profile}}</i>
+    </div>
+    </div>
+    <div class="layout vertical">
+        <h3>Summary</h3>
+        <div><b>Industry: </b>{{industry}}</div>
+        <div><b>Position: </b>{{position}} ({{period}})</div>
+        <div><b>Regions: </b> {{regions}}</div>
+        <div><b>Activties: </b> {{summary}}</div>
+        <h3>Accomplishments</h3>
+        <div class="block">
+          <content></content>
+        </div>
+      </div>
+    </div>
+    </div>
+  </template>
+
+  <script>
+    Polymer({
+      is: "app-reference",
+      behaviors: [
+        Polymer.NeonAnimatableBehavior,
+        Polymer.IronResizableBehavior
+      ],
+      properties:{
+        period: String,
+        location: String,
+        company: String,
+        industry: String,
+        regions: String,
+        logo: String,
+        projects: String,
+        position: String,
+        summary: String,
+        animationConfig: {
+          value: function() {
+            return {
+              'entry': {
+                // provided by neon-animation/animations/scale-up-animation.html
+                name: 'slide-from-left-animation',
+                node: this
+              },
+              'exit': {
+                // provided by neon-animation/animations/fade-out-animation.html
+                name: 'slide-left-animation',
+                node: this
+              }
+            }
+          }
+        }
+
+
+      }
+
+    });
+  </script>
+
+</dom-module>

@@ -1,0 +1,48 @@
+<dom-module id="app-data">
+</dom-module>
+<script>
+    (function () {
+        var instances = [];
+        var vars = Object.create(Polymer.Base);
+        var commondata = {
+            get loader() {
+                return vars.get("loader");
+            },
+            set loader(v) {
+                return setGlob("loader", v);
+            }
+        };
+
+        function setGlob(path, v) {
+            if (vars.get(path) != v) {
+                vars.set(path, v);
+                for (var i = 0; i < instances.length; i++) {
+                    instances[i].notifyPath("data." + path, v);
+                }
+            }
+            return v;
+        }
+
+        Polymer({
+            is: 'app-data',
+            properties: {
+                data: {
+                    type: Object,
+                    value: commondata,
+                    notify: true,
+                    readonly: true
+                }
+            },
+            created: function () {
+                instances.push(this);
+            },
+
+            detached: function () {
+                var i = instances.indexOf(this);
+                if (i >= 0) {
+                    instances.splice(i, 1);
+                }
+            }
+        });
+    })();
+</script>

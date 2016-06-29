@@ -1,0 +1,65 @@
+<link rel="import" href="elements.html">
+
+<dom-module id="app-page">
+
+<style is="custom-style">
+  .page{
+    color:white;
+    background-color:#333;
+  }
+
+  .logo{
+      width: 100px;
+  }
+</style>
+
+  <template>
+
+    <div class="page">
+      <div class="horizontal layout">
+        <div>
+          <img class="logo" src="{{logo}}"></img>
+         </div>
+
+         <div class="flex">
+           <content></content>
+         </div>
+      </div>
+    </div>
+  </template>
+
+  <script>
+    Polymer({
+      is: "app-page",
+      behaviors: [
+        Polymer.NeonAnimatableBehavior,
+        Polymer.IronResizableBehavior
+      ],
+      properties: {
+        logo: {
+          type: String,
+          value: "/images/tasks.png"
+        },
+
+        animationConfig: {
+          value: function() {
+            return {
+              'entry': {
+                // provided by neon-animation/animations/scale-up-animation.html
+                name: 'slide-from-left-animation',
+                node: this
+              },
+              'exit': {
+                // provided by neon-animation/animations/fade-out-animation.html
+                name: 'slide-left-animation',
+                node: this
+              }
+            }
+          }
+        }
+      }
+
+    });
+  </script>
+
+</dom-module>

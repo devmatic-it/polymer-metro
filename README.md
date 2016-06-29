@@ -1,2 +1,3 @@
 # polymer-metro
-Google components for Metro-style apps and pages
+Google Polymer components for Metro-style apps and pages.
+

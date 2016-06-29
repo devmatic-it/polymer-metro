@@ -1,0 +1,94 @@
+<link rel="import" href="elements.html">
+<link rel="import" href="app-page.html">
+<dom-module id="app-contact">
+
+<style is="custom-style">
+
+</style>
+
+  <template>
+    <app-page logo="{{logo}}">
+      <div class="horizontal layout">
+        <div class="flex">
+          <p style="padding-top:10px;" typeof="v:Person">
+            <span property="v:title">{{title}}</span><br/>
+            <span property="v:name">{{name}}</span><br/>
+            <span property="v:address">
+              <span property="v:locality">{{city}}</span><br />
+              <span property="v:country_name">{{country}}</span><br/>
+            </span>
+            {{email}}<br/>
+            {{phone}}
+          </p>
+
+          <div style="padding:20px;">
+            <!--  Gulp -->
+            <a href="{{gulpUrl}}" rel="publisher">
+              <img src="http://www.gulp.de/images/myGULP/GULP_Profil_m.png" height="24" alt="Meine GULP ID: 63985" title="Meine GULP ID: 63985" />
+            </a>
+
+
+            <!--   Xing -->
+            <a href="{{xingUrl}}" target="_blank" rel="publisher">
+              <img src="http://www.xing.com/img/buttons/10_en_btn.gif" height="24" alt="Ferenc Bator"/>
+            </a>
+
+            <!--  LinkedIn -->
+            <a href="{{linkedinUrl}}" rel="publisher">
+                  <img src="http://www.linkedin.com/img/webpromo/btn_myprofile_160x33.png" height="24" border="0" alt="View Ferenc Bator's profile on LinkedIn"/>
+            </a>
+          </div>
+        </div>
+
+
+        <div>
+          	<img style="margin:30px;width:170px;" src="/images/passbild.jpg" alt="Photo"  typeof="v:photo" />
+        </div>
+      </div>
+
+    </app-page>
+  </template>
+
+  <script>
+    Polymer({
+      is: "app-contact",
+      behaviors: [
+        Polymer.NeonAnimatableBehavior,
+        Polymer.IronResizableBehavior
+      ],
+      properties:{
+        logo: {
+          type: String,
+          value: "/images/phone.png"
+        },
+        title: String,
+        name: String,
+        city: String,
+        country: String,
+        email: String,
+        phone: String,
+        linkedinUrl: String,
+        xingUrl: String,
+        gulpUrl : String,
+        photoUrl: String,
+        animationConfig: {
+          value: function() {
+            return {
+              'entry': {
+                // provided by neon-animation/animations/scale-up-animation.html
+                name: 'slide-from-left-animation',
+                node: this
+              },
+              'exit': {
+                // provided by neon-animation/animations/fade-out-animation.html
+                name: 'slide-left-animation',
+                node: this
+              }
+            }
+          }
+        }
+      }
+    });
+  </script>
+
+</dom-module>

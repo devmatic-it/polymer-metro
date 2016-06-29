@@ -10,7 +10,10 @@ The complete set of contributors may be found at https://github.com/devmatic-it/
 <dom-module id="app-contact">
 
 <style is="custom-style">
-
+  .photo{
+    margin:30px;
+    width:170px;
+  }
 </style>
 
   <template>
@@ -49,7 +52,7 @@ The complete set of contributors may be found at https://github.com/devmatic-it/
 
 
         <div>
-          	<img style="margin:30px;width:170px;" src="{{photoUrl}}" alt="Photo"  typeof="v:photo" />
+          	<img class="photo" src="{{photoUrl}}" alt="Photo"  typeof="v:photo" />
         </div>
       </div>
 

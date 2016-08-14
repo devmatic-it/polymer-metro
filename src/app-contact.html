@@ -33,32 +33,31 @@ The complete set of contributors may be found at https://github.com/devmatic-it/
 
           <div style="padding:20px;">
             <!--  Gulp -->
-            <a href="{{gulpUrl}}" rel="publisher">
+            <a href="{{gulp_url}}" rel="publisher">
               <img src="http://www.gulp.de/images/myGULP/GULP_Profil_m.png"
-                height="24" alt="My GULP ID: 63985"
-                title="My GULP ID: 63985">
+                height="24" alt="View {{name}} profile on Gulp">
               </img>
             </a>
 
 
             <!--   Xing -->
-            <a href="{{xingUrl}}" target="_blank" rel="publisher">
+            <a href="{{xing_url}}" target="_blank" rel="publisher">
               <img src="http://www.xing.com/img/buttons/10_en_btn.gif"
-                height="24" alt="Ferenc Bator">
+                height="24" alt="View {{name}} profile on Xing">
               </img>
             </a>
 
             <!--  LinkedIn -->
-            <a href="{{linkedinUrl}}" rel="publisher">
+            <a href="{{linkedin_url}}" rel="publisher">
                 <img src="http://www.linkedin.com/img/webpromo/btn_myprofile_160x33.png"
-                  height="24" border="0" alt="View Ferenc Bator's profile on LinkedIn">
+                  height="24" border="0" alt="View {{name}} profile on LinkedIn">
                 </img>
             </a>
           </div>
         </div>
 
         <div>
-          	<img class="photo" src="{{photoUrl}}" alt="Photo"  typeof="v:photo">
+          	<img class="photo" src="{{photo_url}}" alt="Photo"  typeof="v:photo">
             </img>
         </div>
       </div>
@@ -84,10 +83,10 @@ The complete set of contributors may be found at https://github.com/devmatic-it/
         country: String,
         email: String,
         phone: String,
-        linkedinUrl: String,
-        xingUrl: String,
-        gulpUrl : String,
-        photoUrl: String,
+        linkedin_url: String,
+        xing_url: String,
+        gulp_url : String,
+        photo_url: String,
         animationConfig: {
           value: function() {
             return {

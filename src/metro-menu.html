@@ -5,10 +5,8 @@ This code may only be used under the BSD style license found at https://github.c
 The complete set of authors may be found at https://github.com/devmatic-it/polymer-metro/AUTHORS.txt
 The complete set of contributors may be found at https://github.com/devmatic-it/polymer-metro/CONTRIBUTORS.txt
 -->
-
-<link rel="import" href="metro-item.html">
-<link rel="import" href="metro-group.html">
-<link rel="import" href="app-data.html">
+<link rel="import" href="https://cdn.rawgit.com/download/polymer-cdn/1.5.0/lib/polymer/polymer.html">
+<link rel="import" href="https://cdn.rawgit.com/The5heepDev/iron-grid/master/iron-grid.html">
 
 <dom-module id="metro-menu">
   <style include="iron-flex"></style>
@@ -16,11 +14,10 @@ The complete set of contributors may be found at https://github.com/devmatic-it/
   </style>
 
   <template>
-      <app-data id="homeRef" data="{{homeRef}}"></app-data>
-      <div class="vertical layout">
-           <content></content>
-      </div>
-    </template>
+    <iron-grid>
+      <content></content>
+   </iron-grid>
+  </template>
 
 
   <script>
